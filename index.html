@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ross McCrann 16326617</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="plotly-latest.min.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/status.js"></script>
+    <script src="javascript/graph.js"></script>
+
+  </head>
+  <body>
+
+      <div id="tooltipHolder" class="invisible">
+            <h3>A</h3>
+            <p>A</p>
+        </div>
+
+    <div class="loginHolder">
+      <img src="github.png" alt="Github Logo">
+      <input type="text" placeholder="Username" id="username"/>
+      <input type="password" placeholder="Password" id="password"/>
+      <a href="javascript:logIn()">Log In</a>
+    </div>
+
+
+    <p id="status" class="invisible">Logging you in</p>
+    <div id="spinner" class="invisible"></div>
+
+    <div id="content" class="invisible">
+
+
+      <div id="sideHolder">
+
+        <div>
+
+          <div>
+              <input type="text" id="otherUsername" placeholder="Username"><a href="javascript:search()" id="search">Search</a>
+            </div>
+
+          <img src="" alt="Profile Image" id="profileImage">
+          <div id="profileName">Name</div>
+          <div id="profileFollowersNum">Num</div>
+          <div id="profileFollowingNum">Num</div>
+
+        </div>
+
+        <div id="myRepos">
+          <h3 class="repoTitle">Repos</h3>
+        </div>
+
+
+      </div>
+
+      <div id="mainHolder">
+        <div id="controls1">
+
+
+
+        </div>
+        <div id="topBar">
+
+
+          <div class="holder left">
+            <h3 id="devName">Name</h3>
+            <p id="commitMessage">"Commit message"</p>
+          </div>
+
+          <div class="right">
+            <div class="holder">
+              <p id="profilePublicRepoNum">0</p>
+              <p id="profilePrivateRepoNum">0</p>
+              <p id="profileName">0</p>
+            </div
+
+            <div class="holder">
+              <h3 id="commitHour">00:00</h3>
+              <p id="commitDate">29 November 2019</p>
+            </div>
+
+          </div>
+
+
+
+
+          <div id="controls">
+                <a href="javascript:left()">&larr;</a>
+                <h4 id="pageNumber">0 of 0</h4>
+                <a href="javascript:right()">&rarr;</a>
+              </div>
+
+
+
+
+          <div id="mainContent1">
+
+
+
+
+
+
+
+            <div id="chart"></div>
+
+       <script>
+
+          function getRandomInt(max) {
+
+  return Math.floor(Math.random() * Math.floor(max));
+
+  }
+
+           function getData() {
+
+               var arr = [];
+
+               for(let i=0;i< 10 ;i++)
+
+                   arr.push(Array(10).fill().map(() => getRandomInt(10)))
+
+               return arr;
+
+           }
+
+           var data = getData();
+
+           console.log(data);
+
+           var layout = {
+
+
+
+             title: 'Git Repo Commit Frequency'
+
+             };
+
+           Plotly.newPlot('chart', [{
+
+                  z: data,
+
+                  type: 'surface'
+
+           }], layout);
+
+       </script>
+</div>
+
+
+
+          <div id="mainContent">
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+  </body>
+</html>
